@@ -387,6 +387,10 @@ public:
 
 	// Random
 	Common::RandomSource *_rnd;
+
+	// Track if rbutton was lifted during cutscene
+	bool _rButtonUp;
+
 };
 
 struct chapterEntry {

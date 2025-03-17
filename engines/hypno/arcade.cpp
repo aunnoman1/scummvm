@@ -300,6 +300,7 @@ void HypnoEngine::runArcade(ArcadeShooting *arc) {
 			}
 		}
 		needsUpdate = _background->decoder->needsUpdate();
+		_rButtonUp=false;
 		while (g_system->getEventManager()->pollEvent(event)) {
 			mousePos = getPlayerPosition(false);
 
@@ -742,6 +743,8 @@ bool HypnoEngine::shoot(const Common::Point &mousePos, ArcadeShooting *arc, bool
 	if (secondary) {
 		if (_background->decoder->getCurFrame() % 2 == 0)
 			drawShoot(mousePos);
+		if(_rButtonUp)
+			return false;
 		return clickedSecondaryShoot(mousePos);
 	} else {
 		drawShoot(mousePos);
